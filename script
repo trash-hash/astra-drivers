@@ -17,3 +17,4 @@ apt install ./astra-drivers/Common/*.deb
 sh ./astra-drivers/Common/*.run
 useradd -m -s /bin/bash teacher
 chpasswd <<< "teacher:12345678"
+usermod -aG sudo teacher
