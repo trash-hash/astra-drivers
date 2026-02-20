@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd /tmp
+apt update -y
+apt install cups cups-client sane sane-utils python3 python3-pip audacity fp-compiler git -y
+curl -s https://www.niisi.ru/kumir/Kumir2X-904.tar.gz > Kumir2X-904.tar.gz
+tar -xvf Kumir2X-904
+git clone https://github.com/trash-hash/astra-drivers.git
+if [[ `cat /proc/cpuinfo | grep AMD` != "" ]]; then
+	./astra-drivers/AMD/*.sh | sh
+	apt install ./astra-drivers/AMD/*.deb
+else
+	sh ./astra-drivers/Intel/*.sh
+	apt install ./astra-drivers/Intel/*.deb
+fi
+apt install ./astra-drivers/Common/*.deb
+sh ./astra-drivers/Common/*.run
+useradd -m -s /bin/bash teacher
+chpasswd <<< "teacher:12345678"
