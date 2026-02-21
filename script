@@ -6,7 +6,7 @@ apt update -y
 apt upgrade -y
 apt install cups cups-client sane sane-utils python3 audacity fpc git -y
 curl -s https://www.niisi.ru/kumir/Kumir2X-904.tar.gz > Kumir2X-904.tar.gz
-tar -xvf Kumir2X-904
+tar -xvf Kumir2X-904.tar.gz
 git clone https://github.com/trash-hash/astra-drivers.git
 if [[ `cat /proc/cpuinfo | grep AMD` != "" ]]; then
 	./astra-drivers/AMD/*.sh | sh
