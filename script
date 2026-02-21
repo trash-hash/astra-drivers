@@ -1,8 +1,10 @@
 #!/bin/bash
-
-cd /tmp
+cd /root
+mkdir tmp
+cd tmp
 apt update -y
-apt install cups cups-client sane sane-utils python3 python3-pip audacity fp-compiler git -y
+apt upgrade -y
+apt install cups cups-client sane sane-utils python3 audacity fpc git -y
 curl -s https://www.niisi.ru/kumir/Kumir2X-904.tar.gz > Kumir2X-904.tar.gz
 tar -xvf Kumir2X-904
 git clone https://github.com/trash-hash/astra-drivers.git
